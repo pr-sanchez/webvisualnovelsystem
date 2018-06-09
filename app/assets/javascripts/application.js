@@ -14,3 +14,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+// var Slider = 0;
+// carousel();
+// function carousel() {
+//     var i;
+//     var x = document.getElementsByClassName("Slides");
+//     for (i = 0; i < x.length; i++) {
+//        x[i].style.display = "none";  
+//     }
+//     Slider++;
+//     if (Slider > x.length) {Slider = 1}    
+//     x[Slider-1].style.display = "block";  
+//     setTimeout(carousel, 5000000);
+// }

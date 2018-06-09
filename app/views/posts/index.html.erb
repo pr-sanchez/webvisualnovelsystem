@@ -1,7 +1,10 @@
-<h1>Noticias</h1>
-<% @posts.each do |post| %>
-    <div class="post_wrapper">
-        <h2 class="title"> <%= link_to post.title, post %> </h2>
-        <p class="date"> <%= post.created_at.strftime("%B, %d, %Y")%> </p>
-    </div>
-<% end %>
+<div class="news">
+    <h1 class="text-center news-title">Noticias</h1>
+    <% @posts.each do |post| %>
+        <div class="post_wrapper">
+            <!--<%= image_tag  "avatar.png" %>-->
+            <h2 class="title"> <%= link_to post.title, post %> </h2>
+            <p class="date"> <%= post.created_at.strftime("%B, %d, %Y")%> </p>
+        </div>
+    <% end %>
+</div>
