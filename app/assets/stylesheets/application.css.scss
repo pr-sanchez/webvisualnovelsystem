@@ -211,6 +211,7 @@ input[type="submit"] {
   font-size: 1.1em;
   border-radius: 1.5em;
   margin-left: .5em;
+  cursor: pointer;
   &:hover {
     border: 1px solid #33acb7;
     color: #33acb7;
@@ -406,6 +407,7 @@ input[type="submit"] {
     border: 1px solid #d6dce0;
     padding: .5em 1.5em;
     border-radius: 1.5em;
+    cursor: pointer;
     &:hover {
       border: 1px solid #ef9a9a;
       color: #ef9a9a;
