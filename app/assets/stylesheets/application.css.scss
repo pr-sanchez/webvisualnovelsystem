@@ -160,6 +160,15 @@ padding: 1em 3em;
 }
 }
 
+
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
 #page_wrapper {
   padding: 3em;
   #profile_image {
@@ -417,13 +426,7 @@ input[type="submit"] {
     }
   }
   
-  .clearfix:after {
-     content: ".";
-     visibility: hidden;
-     display: block;
-     height: 0;
-     clear: both;
-  }
+
   
   .tags{
     display: inline-block; /*Porque las transformaciones no funcionan en elementos con display:inline*/
@@ -440,6 +443,8 @@ input[type="submit"] {
     -o-transition: 0.70s;
     -webkit-transform: rotateZ(25deg);
   }
+
+  
 }
 
   @media only screen and (max-width: 500px){
