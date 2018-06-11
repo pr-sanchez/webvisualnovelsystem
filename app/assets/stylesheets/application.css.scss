@@ -44,7 +44,8 @@ a {
 }
 
 .img-responsive{
-  width: 100%; 
+  width: 100%;
+  height: auto;
 }
 .text-center{
   text-align: center;
@@ -305,10 +306,10 @@ input[type="submit"] {
     // border: 1px solid red;
   }
   .main-head img{
-    width: 100%;
-    height: 430px;
+    // width: 100%;
+    // height: 430px;
   }.main-head img:hover {
-    opacity:0.8;
+    // opacity:0.8;
   }
   .content {
     grid-area: content;
@@ -385,13 +386,9 @@ input[type="submit"] {
       // border-right: 2px solid rgba(214, 48, 49, 1);
       // z-index: 1;
      #menu{
-       position: fixed;
-       left: 0;
-       top: 0;
-       padding: 3em 0 0 0;
-       perspective: 0px;
+
+
        margin: 0;
-       transform-style: none;
       //  margin-left: 10px;
      }ul {
       list-style: none;
@@ -421,17 +418,10 @@ input[type="submit"] {
         }
       }
     }
-    .sign_in {
-      position: relative;
-      left: 0;
-      top: 80%;
-      font-size: .8em;
-      color: #9eafba;
-    }
   }
  
   .espaciado{
-    height: 500px;
+    // height: 500px;
   }
   .tags{
     display: inline-block; /*Porque las transformaciones no funcionan en elementos con display:inline*/
