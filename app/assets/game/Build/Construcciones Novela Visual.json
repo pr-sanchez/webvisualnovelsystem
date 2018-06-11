@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Plantilla Novela Visual",
+"dataUrl": "Construcciones Novela Visual.data.unityweb",
+"asmCodeUrl": "Construcciones Novela Visual.asm.code.unityweb",
+"asmMemoryUrl": "Construcciones Novela Visual.asm.memory.unityweb",
+"asmFrameworkUrl": "Construcciones Novela Visual.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}

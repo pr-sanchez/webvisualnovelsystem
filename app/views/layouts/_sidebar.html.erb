@@ -1,0 +1,23 @@
+ <div id="menu">
+    <div class="logo">
+        <%= link_to root_path do %>
+            <%= image_tag "logo.png", :class=> "img-logo" %>
+        <% end %>
+    </div>
+    <ul>
+        <li class="category">Website</li>
+        <li> <%= link_to "Inicio", root_path, :class => "tags" %></li>
+        <li> <%= link_to "Blog", news_path, :class => "tags" %></li>
+        <li> <%= link_to "Novelas", novel_path, :class => "tags" %></li>
+        <li> <%= link_to "Tienda", root_path, :class => "tags" %></li>             
+    </ul>
+    <ul>
+        <li class="category">Social</li>
+        <li> <%= link_to "Foro", root_path, :class => "tags" %></li>
+        <li> <%= link_to "Sobre nosotros", about_path, :class => "tags" %></li>
+        <li> <%= link_to "Facebook", root_path, :class => "tags" %></li>
+        <li> <%= link_to "Instagram", root_path, :class => "tags" %></li>
+    </ul>
+    <p class="sign_in">Admin login</p>
+    <div class="espaciado"></div>
+</div>

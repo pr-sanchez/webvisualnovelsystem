@@ -6,7 +6,7 @@
     <p class="date">
         publicado <%= time_ago_in_words(@post.created_at) %> Ago
         | <%= link_to 'Editar post', edit_post_path(@post), :class => 'post_labels' %>
-        |  <%= link_to 'Borrar post', post_path(@post), method: :delete, data: { confirm: 'Estas seguro de querer borrar este Post?' }, :class => 'post_labels' %>
+        | <%= link_to 'Borrar post', post_path(@post), method: :delete, data: { confirm: 'Estas seguro de querer borrar este Post?' }, :class => 'post_labels' %>
     </p>
 
     <p class="body">

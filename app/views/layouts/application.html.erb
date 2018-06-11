@@ -4,68 +4,31 @@
   <title>WebVisualNovelSystem</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%=javascript_include_tag :webgl%>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Dancing+Script|Raleway' %>
 
 </head>
 <body>
 
-
-
   <div class="wrapper">
-        <header class="main-head">
-          <div id="main_content">
-            <div id="header">
-              <p>Todos los Posts</p>
-              <div class="buttons">
-                <button class="button">
-                  <%= link_to "Nuevo Post", new_post_path%></li>
-                </button>
-                <button class="button">
-                  Salir
-                </button>
-              </div>
-            </div>
-            <% flash.each do |name, msg| %>
-              <%= content_tag(:div, msg, class: "alert")  %>
-            <% end %>
-          </div>
-        </header>
-        <nav class="main-nav">
-            <div id="menu">
-              <div class="logo">
-                <%= link_to root_path do %>
-                  <%= image_tag "logo.png", :class=> "img-logo" %>
-                <% end %>
-              </div>
-              <ul>
-                <li class="category">Website</li>
-                <li> <%= link_to "Inicio", root_path, :class => "tags" %></li>
-                <li> <%= link_to "Blog", root_path, :class => "tags" %></li>
-                <li> <%= link_to "Novelas", root_path, :class => "tags" %></li>
-                <li> <%= link_to "Tienda", root_path, :class => "tags" %></li>             
-              </ul>
-              <ul>
-                <li class="category">Social</li>
-                <li> <%= link_to "Foro", root_path, :class => "tags" %></li>
-                <li> <%= link_to "Facebook", root_path, :class => "tags" %></li>
-                <li> <%= link_to "Instagram", root_path, :class => "tags" %></li>
-              </ul>
-              <p class="sign_in">Admin login</p>
-            </div>
-        </nav>
-         <article class="content">
-            <%= image_tag "header.jpeg", :class => "img-responsive" %>
-          <%= yield %>
-        </article> 
-        <footer class="main-footer">
-          <div class="footer">
-            <br><br><br><br>Footer<br><br><br><br><br>
-          </div>
-        </footer>
+    <header class="main-head">
+      <div id="main_content">
+        <%= render 'layouts/header' %>
+      </div>
+    </header>
+    <nav class="main-nav">
+      <%= render 'layouts/sidebar' %>
+    </nav>
+    <article class="content">
+      <%= yield %>
+    </article> 
+    <footer class="main-footer">
+      <div class="footer">
+        <br><br><br><br>Footer<br><br><br><br><br>
+      </div>
+    </footer>
   </div>
-
-
 
 </body>
 </html>
