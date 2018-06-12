@@ -1,0 +1,15 @@
+<div class="news_root_container">
+    <h1 class="text-center news_title_root">Noticias</h1>
+        <% @posts.each do |post| %>
+            <div class="post_wrapper_root">
+                <!--<%= image_tag  "avatar.png" %>-->
+                <h2 class="post_wrapper_root_title"> <%= link_to post.title, post %> </h2>
+                <p class="post_wrapper_root_date"> <%= post.created_at.strftime("%B, %d, %Y")%> </p>
+            </div>
+        <% end %>
+
+    <div class="flickr_pagination">
+        <%= will_paginate @posts, previous_label: "Anterior", next_label: "Siguiente", :page_links => false %>
+    </div>
+</div>
+

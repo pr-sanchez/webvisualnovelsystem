@@ -11,6 +11,12 @@
         <%= link_to "Volver al inicio", root_path %>
     <% end %>
 
+       <% if user_signed_in? %>
+        | <a href="#">Conectado como: <%= current_user.email %></a>
+        | <a href="#">Monedas: <%= current_user.coin %></a>
+        | <%= link_to "Editar cuenta", edit_user_registration_path %>
+       <% end %>
+
     <% if user_signed_in? %>
         <div class="buttons">
             <button class="button">

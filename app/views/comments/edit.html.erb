@@ -1,5 +1,6 @@
-<%= form_for([@post, @post.comments.build]) do |f| %>
+<h1>Editar comentario</h2>
 
+<%= form_for([@post, @comment]) do |f| %>
     <p>
         <%= f.label :Comentario %> <br>
         <%= f.text_area :comment %>

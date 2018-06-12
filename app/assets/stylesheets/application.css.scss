@@ -59,6 +59,7 @@ a {
   border-bottom: 1px solid #d6dce0;
   background: #f5f7f9;
   color: #9eafba;
+  z-index: 1;
   p {
     display: inline;
   }
@@ -246,17 +247,49 @@ input[type="submit"] {
   }
 }
 
-.news{
-  // border: 2px solid #ef9a9a;
-  background: #ECF0F1;
-}
+
 .news-title{
   // border-bottom: 2px solid #ef9a9a;
   margin: 0;
+  background: #ECF0F1;
   border-bottom: 1px solid #d6dce0;
 }
 
+//pagination
+.flickr_pagination {
+  text-align: center;
+  padding: 0.3em;
+  cursor: default; }
+  .flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
+    }
+  .flickr_pagination .disabled {
+    color: #aaaaaa; }
+  .flickr_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    color: #ff0084; }
+  .flickr_pagination a {
+    border: 1px solid #dddddd;
+    color: #0063dc;
+    text-decoration: none; }
+    .flickr_pagination a:hover, .flickr_pagination a:focus {
+      border-color: #003366;
+      background: #0063dc;
+      color: white; }
+  .flickr_pagination .page_info {
+    color: #aaaaaa;
+    padding-top: 0.8em; }
+  .flickr_pagination .previous_page, .flickr_pagination .next_page {
+    border-width: 2px; 
+  }
+  .flickr_pagination .previous_page {
+    margin-right: 1em; }
+  .flickr_pagination .next_page {
+    margin-left: 1em; 
+  }
 
+
+//footer
 
 .footer {
   color: #fff;
@@ -344,8 +377,8 @@ input[type="submit"] {
       grid-template-areas: 
         "header  header"
         "nav     nav"
-        "content"
-        "footer";
+        "content content"
+        "footer footer";
     }
     nav ul {
       display: column;
@@ -360,7 +393,7 @@ input[type="submit"] {
 
   @media (min-width: 900px) {
     .wrapper {
-      grid-template-columns: 1fr 5fr;
+      grid-template-columns: 150px 5fr;
       grid-template-areas: 
         "nav header"
         "nav content"
@@ -371,24 +404,97 @@ input[type="submit"] {
        flex-direction: column;
        text-decoration: none;
      }
-
-    .img-logo{
-      width: 65%;
+     .content_root{
+      display: grid;
+      grid-template-columns: 5fr 180px;
+      grid-template-areas: 
+        "contenido noticias"
+     }
+     .contenido_root{
+       grid-area: contenido;
+       justify-self: start;
+     }
+     .news_root{
+      // border: 2px solid #ef9a9a;
+      grid-area: noticias;
+      width: 100%;
+      justify-self: end;
     }
+    .news_root_container{
+      position: fixed;
+      width: auto;
+    }
+    .img-logo{
+      width: 120%;
+    }
+
+    .post_wrapper_root{
+      // border: 1px solid red;
+      background: #ECF0F1;
+      // margin-bottom: 2px;
+      padding: 1em;
+      border-bottom: 1px solid #d6dce0;
+    }.post_wrapper_root_title {
+      margin: 0;
+      .post_wrapper_root_title > a {
+        font-weight: 100;
+        text-decoration: none;
+        color: #2a2f35;
+        font-size: 20px;
+        &:hover {
+          color: rgba(214, 48, 49, 1);
+        }
+      }
+    }.post_wrapper_root_date{
+      font-size: 12px;
+    }
+    .news_title_root{
+      margin-top:-50px;
+      font-size: 25px;
+      color: #000;
+      background: #ECF0F1;
+      border-bottom: 1px solid #d6dce0;
+    }
+
+    #header {
+      position: relative;
+      padding: 1em 3em;
+      border-bottom: 1px solid #d6dce0;
+      background: #f5f7f9;
+      color: #9eafba;
+      // z-index: 1;
+      p {
+        display: inline;
+      }
+      a {
+        color: #9eafba;
+        text-decoration: none;
+      }
+      .buttons {
+        float: right;
+        margin-top: -6px;
+        .button {
+          font-size: .8em;
+          margin-left: .5em;
+        }
+      }
+    }
+    
+    
+
     .main-nav {
       background: #f1f2f6;
-      border-right: 1px solid #ef9a9a;
+      // border-right: 1px solid #ef9a9a;
       // height: 100%;
       // padding: 7em 0 0 0;
       // transform:skew(2deg);
       // background-image: image-url('fondo.jpg');
       // background-repeat: repeat;
       // border-right: 2px solid rgba(214, 48, 49, 1);
-      // z-index: 1;
-     #menu{
-
-
+      z-index: 1;
+      #menu{
        margin: 0;
+       width: 150px;
       //  margin-left: 10px;
      }ul {
       list-style: none;
@@ -420,9 +526,6 @@ input[type="submit"] {
     }
   }
  
-  .espaciado{
-    // height: 500px;
-  }
   .tags{
     display: inline-block; /*Porque las transformaciones no funcionan en elementos con display:inline*/
     -webkit-transition: 0.70s;
