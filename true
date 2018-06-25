@@ -1,0 +1,2 @@
+      invoke  active_record
+      remove    db/migrate/20180612161701_add_user_id_to_user.rb

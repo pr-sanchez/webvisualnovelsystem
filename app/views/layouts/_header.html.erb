@@ -20,18 +20,22 @@
     <% if user_signed_in? %>
         <div class="buttons">
             <button class="button">
-                <%= link_to "Nuevo Post", new_post_path%></li>
+                <%= link_to "Nuevo Post", new_post_path %>
             </button>
             <button class="button">
-                Salir
+                <%= link_to "Salir", destroy_user_session_path, method: :delete %>
             </button>
         </div>
     <% end %>
 
     <% if !user_signed_in? %>
         <div class="buttons">
-            <%= link_to "Registrarte", new_user_registration_path, :class => "button" %>
-            <%= link_to "Entrar", new_user_session_path, :class => "button" %>
+            <button class="button">
+                <%= link_to "Registrarte", new_user_registration_path %>
+            </button>
+            <button class="button">
+                <%= link_to "Entrar", new_user_session_path %>
+            </button>
         </div>
     <% end %>
 

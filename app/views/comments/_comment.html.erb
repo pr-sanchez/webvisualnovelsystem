@@ -5,7 +5,7 @@
         <p class="comment_time"><%= time_ago_in_words(comment.created_at) %> Ago</p>
     </div>
 
-    <% if user_signed_in? %>
+    <% if (user_signed_in? && (current_user.id == comment.user_id)) %>
         <p><%= link_to 'Borrar', [comment.post, comment],
                         method: :delete,
                         class: "button",

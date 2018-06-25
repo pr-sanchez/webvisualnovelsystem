@@ -1,4 +1,5 @@
   <%= form_for @post do |f| %>
+    <%=  f.hidden_field :user_id , :value => current_user.id %>
       <% if @post.errors.any? %>
         <div id="errors">
             <h2> 
