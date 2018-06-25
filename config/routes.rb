@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  resources :discussions
   resources :posts do
     resources :comments
   end
@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get "news" => 'posts#index'
   get '/novel', to: 'pages#novel'
+  get '/forum', to: 'discussions#index'
+
+
+  devise_for :users, controllers: { registrations: 'registrations' }
+
 
 end

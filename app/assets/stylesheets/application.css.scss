@@ -16,7 +16,8 @@
 
  /*Web desarrollada por Pedro Sánchez @vengadorweb y editor de novelas visuales por Leonardo Solórzano*/
 
- @import 'normalize';
+@import 'normalize';
+@import "functions";
 
 html, body {
   margin: 0;
@@ -368,6 +369,38 @@ input[type="submit"] {
       "content"
       "footer";
   }
+
+
+/*FORO*/
+
+
+
+.image {
+  border-radius: 50%;
+  img {
+    border-radius: 50%;
+  }
+}
+
+.notification:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.textarea {
+  height: 250px;
+  font-family: Monaco, san-serif;
+  font-size: .9rem;
+  padding: 1rem;
+}
+
+.discussion-title {
+  margin-bottom: 0;
+}
+
+
+/*FORO*/
+
+
 
 
   /*Media queries*/

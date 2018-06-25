@@ -54,6 +54,8 @@ gem 'redcarpet', '~> 3.4'
 #Fast and easy syntax highlighting for selected languages
 gem 'coderay', '~> 1.1', '>= 1.1.2'
 
+#
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -66,6 +68,12 @@ gem 'coderay', '~> 1.1', '>= 1.1.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  #Guard is a command line tool to easily handle events on file system modifications.
+  gem 'guard', '~> 2.14', '>= 2.14.2'
+
+  #Guard::LiveReload automatically reloads your browser when 'view' files are modified.
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
 end
 
 group :development do

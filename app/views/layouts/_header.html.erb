@@ -41,6 +41,18 @@
 
 </div>
 
-<% flash.each do |name, msg| %>
+<!--<% flash.each do |name, msg| %>
     <%= content_tag(:div, msg, class: "alert")  %>
-<% end %>
+<% end %>-->
+
+<% if flash[:notice] %>
+      <div class="notification is-success global-notification">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+    <div class="notification is-danger global-notification">
+      <p class="alert"><%= alert %></p>
+    </div>
+    <% end %>
+   
