@@ -1,0 +1,78 @@
+/*CUSTOMIZING BULMA STYLES*/
+
+
+// 1. Import the initial variables
+@import "sass/utilities/initial-variables";
+@import "sass/utilities/functions";
+
+// 2. Set your own initial variables
+// Update blue
+$blue: #72d0eb;
+// Add pink and its invert
+$pink: #ffb3b3;
+$pink-invert: #fff;
+$gold: #e1b12c;
+.shadow{ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+$waning: $gold;
+// Add a serif family
+$family-serif: "Merriweather", "Georgia", serif;
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
+$primary: $pink;
+.button.is-primary{
+    color: #fff !important;
+}
+
+
+$primary-invert: $pink-invert;
+// Use the existing orange as the danger color
+$danger: $orange;
+// Use the new serif family
+$family-primary: $family-serif;
+
+// 4. Setup your Custom Colors
+$linkedin: #0077b5;
+$linkedin-invert: findColorInvert($linkedin);
+$twitter: #55acee;
+$twitter-invert: findColorInvert($twitter);
+$github: #333;
+$github-invert: findColorInvert($github);
+
+// 5. Add new color variables to the color map.
+@import "sass/utilities/derived-variables";
+$addColors: (
+  "twitter":($twitter, $twitter-invert),
+  "linkedin": ($linkedin, $linkedin-invert),
+  "github": ($github, $github-invert)
+);
+$colors: map-merge($colors, $addColors);
+
+li{
+  list-style: none;
+}
+$pagination-color:	$grey-darker;	
+$pagination-border-color:	$grey-lighter;
+$pagination-margin:	size	-0.25rem;	
+$pagination-hover-color:	$link-hover;	
+$pagination-hover-border-color:	$link-hover-border;	
+$pagination-focus-color:	$link-focus;	
+$pagination-focus-border-color:	$link-focus-border;
+$pagination-active-color:	$link-active;	
+$pagination-active-border-color:	$link-active-border;
+$pagination-disabled-color:	$grey;
+$pagination-disabled-background-color:	$grey-lighter;	
+$pagination-disabled-border-color:	$grey-lighter;	
+$pagination-current-color:	$link-invert;	
+$pagination-current-background-color:	$link;	
+$pagination-current-border-color:	$link;
+$pagination-ellipsis-color:	$grey-light;	
+$pagination-shadow-inset:  0 1px 2px rgba($black, 0.2);
+
+// 6. Import the rest of Bulma
+@import "bulma";
+
+
+

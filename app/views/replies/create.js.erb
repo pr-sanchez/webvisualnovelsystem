@@ -1,0 +1,7 @@
+$("<%= escape_javascript(render(@reply)) %>").appendTo('#discussion-replies');
+$('#reply_reply').val('');
+<% if @reply.errors.empty? %>
+  $("#notice").html("La respuesta ha sido creada con éxito!");
+<% else %>
+  $("#notice").html("Error! La respuesta no se ha creado, por favor intente nuevamente.");
+<% end %>

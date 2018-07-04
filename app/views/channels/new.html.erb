@@ -1,0 +1,10 @@
+<div class="columns is-centered post_wrapper">
+  <div class="column is-4">
+    <h1 class="title is-3">Crear un nuevo Tema</h1>
+    <% if has_role?(:admin) %>
+      <%= render 'form', channel: @channel %>
+    <% else %> 
+      <p class="has-text-center">Lo sentimos! No tienes acceso a esta página.</p>
+    <% end %>
+  </div>
+</div>

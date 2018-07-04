@@ -30,8 +30,14 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 #A modern CSS framework based on Flexbox
 gem 'bulma-rails', '~> 0.7.1'
 
+#will_paginate-bulma integrate css of bulma to will_paginate
+gem 'will_paginate-bulma'
+
 #Forms made easy!
 gem 'simple_form', '~> 4.0'
+
+#font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 
 #A configurable and documented Rails view helper for adding gravatars into your Rails application.
 gem 'gravatar_image_tag', '~> 1.2'
@@ -54,7 +60,6 @@ gem 'redcarpet', '~> 3.4'
 #Fast and easy syntax highlighting for selected languages
 gem 'coderay', '~> 1.1', '>= 1.1.2'
 
-#
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

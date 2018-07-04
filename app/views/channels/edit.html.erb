@@ -1,0 +1,8 @@
+<div class="box">
+<h1 class="title is-3">Editar Tema</h1>
+<% if has_role?(:admin) %>
+    <%= render 'form', channel: @channel %>
+<% else %> 
+ <p class="has-text-center">Lo sentimos! No tienes acceso a esta página.</p>
+<% end %>
+</div>

@@ -17,12 +17,17 @@
  /*Web desarrollada por Pedro Sánchez @vengadorweb y editor de novelas visuales por Leonardo Solórzano*/
 
 @import 'normalize';
-@import "functions";
+@import 'functions';
+@import "font-awesome";
+
 
 html, body {
   margin: 0;
   padding: 0;
 	font-family: 'Raleway', sans-serif;
+}
+body{
+  background: url('fondo.jpg')
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -32,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
 	text-decoration: none;
-	color: inherit;
+	// color: inherit;
 }
 
 
@@ -56,6 +61,7 @@ a {
 }
 
 #header {
+  margin-top: 0;
   padding: 1em 3em;
   border-bottom: 1px solid #d6dce0;
   background: #f5f7f9;
@@ -72,7 +78,7 @@ a {
     float: right;
     margin-top: -6px;
     .button {
-      font-size: .8em;
+      font-size: 1em;
       margin-left: .5em;
     }
   }
@@ -81,7 +87,7 @@ a {
 
 .post_wrapper{
   // border: 1px solid red;
-  background: #ECF0F1;
+  background: #fff;
   // margin-bottom: 2px;
   padding: 3em;
   border-bottom: 1px solid #d6dce0;
@@ -132,6 +138,7 @@ padding: 1.5em 4em;
   }
   .comment {
     border-bottom: 1px solid #d6dce0;
+    
     padding: 1.5em 2em;
     .clear_both {
       clear: both;
@@ -157,6 +164,7 @@ padding: 1.5em 4em;
     }
     .button {
       float: right;
+      margin-right: 2px;
     }
   }
   input[type="text"], textarea {
@@ -233,12 +241,13 @@ input[type="submit"] {
 }
 
 
-.button {
+.button2 {
   outline: none;
   background: transparent;
   border: 1px solid #d6dce0;
   padding: .5em 1.5em;
   border-radius: 1.5em;
+  color: #000;
   cursor: pointer;
   &:hover {
     border: 1px solid #ef9a9a;
@@ -250,11 +259,20 @@ input[type="submit"] {
 }
 
 
+.facebook-btn{
+  background: #3B5998;
+  color: white;
+}
+
+.logo{
+  -webkit-transform: rotateZ(170deg);
+  width: 130%;
+}
+
 .news-title{
   // border-bottom: 2px solid #ef9a9a;
   margin: 0;
-  background: #ECF0F1;
-  border-bottom: 1px solid #d6dce0;
+  background: #fff;//ECF0F1
 }
 
 //pagination
@@ -364,11 +382,16 @@ input[type="submit"] {
     display: grid;
     grid-gap: 0px;
     grid-template-areas: 
-      "header"
-      "nav"
-      "content"
-      "footer";
+    "nav"
+    "header"
+    "content"
+    "footer";
   }
+
+
+  /*PAGINATION*/
+
+  /*END OF PAGINATION*/
 
 
 /*FORO*/
@@ -405,44 +428,27 @@ input[type="submit"] {
 
   /*Media queries*/
 
-  @media (min-width: 500px) {
-    .wrapper {
-      grid-template-columns: 3fr;
-      grid-template-areas: 
-        "header  header"
-        "nav     nav"
-        "content content"
-        "footer footer";
-    }
-    nav ul {
-      display: column;
-      text-decoration: none;
-      // justify-content: space-between;
-    }
 
-    .img-logo{
-      width: 50%;
-    }
-  }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1200px) {
     .wrapper {
-      grid-template-columns: 150px 5fr;
+      grid-template-columns: 5fr;
       grid-template-areas: 
-        "nav header"
-        "nav content"
-        "nav content"
-        "footer footer"
+        "nav"
+        "header"
+        "content"
+        "footer";
      }
      nav ul {
-       flex-direction: column;
-       text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      text-decoration: none;
      }
      .content_root{
       display: grid;
-      grid-template-columns: 5fr 180px;
+      grid-template-columns: 5fr 2fr;
       grid-template-areas: 
-        "contenido noticias"
+        "contenido  noticias"
      }
      .contenido_root{
        grid-area: contenido;
@@ -451,11 +457,10 @@ input[type="submit"] {
      .news_root{
       // border: 2px solid #ef9a9a;
       grid-area: noticias;
-      width: 100%;
       justify-self: end;
     }
     .news_root_container{
-      position: fixed;
+      position: relative;
       width: auto;
     }
     .img-logo{
@@ -483,36 +488,40 @@ input[type="submit"] {
       font-size: 12px;
     }
     .news_title_root{
-      margin-top:-50px;
+      margin-top:0px;
       font-size: 25px;
       color: #000;
       background: #ECF0F1;
       border-bottom: 1px solid #d6dce0;
     }
-
-    #header {
-      position: relative;
-      padding: 1em 3em;
-      border-bottom: 1px solid #d6dce0;
-      background: #f5f7f9;
-      color: #9eafba;
-      // z-index: 1;
-      p {
-        display: inline;
-      }
-      a {
-        color: #9eafba;
-        text-decoration: none;
-      }
-      .buttons {
-        float: right;
-        margin-top: -6px;
-        .button {
-          font-size: .8em;
-          margin-left: .5em;
-        }
-      }
+    #noticias{
     }
+    #menu_root{
+    }
+
+    // #header {
+    //   position: relative;
+    //   padding: 1em 3em;
+    //   border-bottom: 1px solid #d6dce0;
+    //   background: #f5f7f9;
+    //   color: #9eafba;
+    //   z-index: 1;
+    //   p {
+    //     display: inline;
+    //   }
+    //   a {
+    //     color: #9eafba;
+    //     text-decoration: none;
+    //   }
+    //   .buttons {
+    //     float: right;
+    //     margin-top: -6px;
+    //     .button {
+    //       font-size: 1em;
+    //       margin-left: .5em;
+    //     }
+    //   }
+    // }
     
     
 
@@ -532,7 +541,8 @@ input[type="submit"] {
       //  margin-left: 10px;
      }ul {
       list-style: none;
-      justify-self: end;
+      text-align: right;
+      padding-right: 3em;
       .category {
         font-weight: 800;
         font-size: 0.9em;

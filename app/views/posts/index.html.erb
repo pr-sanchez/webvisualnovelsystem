@@ -1,10 +1,17 @@
-<div class="news">
-    <h1 class="text-center news-title">Noticias</h1>
-    <% @posts.each do |post| %>
-        <div class="post_wrapper">
-            <!--<%= image_tag  "avatar.png" %>-->
-            <h2 class="title"> <%= link_to post.title, post %> </h2>
-            <p class="date"> <%= post.created_at.strftime("%B, %d, %Y")%> </p>
+<div class="container">
+    <div class="columns">
+        <div class="column">
+            <h1 class="text-center news-title">Noticias</h1>
+            <% if has_role?(:admin)%>
+                <%= link_to "Nuevo Post", new_post_path, :class => 'button is-primary is-pulled-right' %>
+            <% end %>
+            <% @posts.each do |post| %>
+                <div class="post_wrapper">
+                    <!--<%= image_tag  "avatar.png" %>-->
+                    <h2 class="title"> <%= link_to post.title, post %> </h2>
+                    <p class="date"> <%= post.created_at.strftime("%B, %d, %Y")%> </p>
+                </div>
+            <% end %>
         </div>
-    <% end %>
+    </div>
 </div>

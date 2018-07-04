@@ -1,14 +1,46 @@
-
 <%= simple_form_for(@discussion) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+       <% if @discussion.errors.any? %>
+        <div id="errors">
+            <h2> 
+                <%= pluralize(@discussion.errors.count, "error") %> 
+                Prevented this post from saving
+            </h2>
+            <ul>
+                <% @discussion.errors.full_messages.each do |msg| %>
+                    <li> <%= msg %> </li>
+                <% end %>
+            </ul>
+        </div>
+      <% end %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :content %>
+  <div class="field">
+    <div class="control">
+      <%= f.input :title, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: "label" }, :label => "Titulo" %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="field">
+    <div class="control">
+      <%= f.input :content, required: true, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: "label" }, :label => "Contenido" %>
+    </div>
   </div>
+
+  <div class="field">
+    <label class="label">Tema</label>
+    <div class="control has-icons-left">
+      <span class="select">
+        <%= f.input_field :channel_id, collection:@channels.map { |c| [c.channel, c.id] }, prompt: "Seleccionar tema" %>
+      </span>
+      <span class="icon is-small is-left">
+        <i class="fa fa-tag"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.button :submit, value: "#{f.object.new_record? ? 'Crear Discusión' : 'Actualizar Discusión'}", class:"button is-info" %>
+    </div>
+  </div>
+
 <% end %>

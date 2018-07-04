@@ -4,5 +4,5 @@ class Post < ActiveRecord::Base
     validates :title, presence: true, length: { minimum: 5 }
     validates :body, presence: true
     validates :title, :uniqueness => { :message => "El titulo de esto post ya ha sido tomado" }
-
+    resourcify
 end

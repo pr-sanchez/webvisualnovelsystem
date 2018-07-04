@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :discussions
+
+  resources :channels
   resources :posts do
     resources :comments
+  end
+
+  resources :discussions do
+    resources :replies
   end
 
   root "pages#home"

@@ -1,0 +1,49 @@
+<div class="column is-8">
+    <div class="level">
+        <div class="level-left">
+            <h3 class="title is-3 has-text-grey-dark">Ultimas Discusiones</h3>
+        </div>
+        <!-- if has_role?(:admin) -->
+            <div class="level-right">
+                <%= link_to_focus_button_info 'Nueva Discusión', new_discussion_path, class: '' %>
+            </div>
+        <!-- end -->
+    </div>
+    
+    <div class="bb-not-last pv10"></div>
+
+    <div class="discussions">
+        <% @discussions.each do |discussion| %>
+            <div class="columns bb-not-last pv10">
+                <div class="column is-1">
+                    <%= gravatar_image_tag(discussion.user.email, class:'border-radius-50', size: 48, alt: discussion.user.username) %>
+                </div>
+                <div class="column is-8">
+                    <%= link_to discussion do %>
+                        <h3 class="title is-3"> <%= discussion.title %></h3>
+                    <% end %>
+                    <div class="content">
+                        <%= truncate(strip_markdown(discussion.content), length: 140) %>
+                        <p>
+                            <em>
+                                <small>
+                                    Publicado <%= time_ago_in_words(discussion.created_at) %> ago en 
+                                    <% if discussion.channel %>
+                                        <%= link_to discussion.channel.channel, discussion.channel %>
+                                    <% end %>
+                                    por <%= discussion.user.username %>
+                                </small>
+                            </em>
+                        </p>
+                    </div>
+                </div>
+                <% if discussion_author(discussion) || has_role?(:admin)%>
+                <div class="column has-text-right">
+                    <%= link_to 'Editar', edit_discussion_path(discussion), class: 'button' %>
+                    <%= link_to 'Borrar', discussion, method: :delete, data: { confirm: '¿Estas seguro?' }, class: "button" %>
+                </div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="column is-3 is-offset-1">
+    <h3 class="title is-3 has-text-grey-dark">Temas</h3>
+
+    <ul class="list">
+        <% @channels.each do |t| %>
+            <li><%= link_to t.channel, t%></li>
+        <% end %>
+    </ul>
+    
+    <br>
+
+    <% if has_role?(:admin) %>
+        <%= link_to_focus_button_info 'Nuevo Tema', new_channel_path, class: '' %>
+        <%= link_to_focus_button_info 'Editar Temas', channels_path, class: '' %>
+    <% end %>
+</div>

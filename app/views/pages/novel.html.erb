@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+<%= favicon_link_tag 'game/TemplateData/favicon.ico', type: 'image/ico' %>
+<% javascript_include_tag "game/TemplateData/UnityProgress.js" %>
+<% javascript_include_tag "game/Build/UnityLoader.js" %>
+<% stylesheet_link_tag "game/TemplateData/style" %>
 
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>  
-    <script src="Build/UnityLoader.js"></script>
+
+
     <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Construcciones Novela Visual.json", {onProgress: UnityProgress});
+      var gameInstance = UnityLoader.instantiate("gameContainer", "game/Build/Construcciones Novela Visual.json", {onProgress: UnityProgress});
     </script>
-  </head>
-  <body>
+
     <div class="webgl-content">
       <div id="gameContainer" style="width: 960px; height: 600px"></div>
       <div class="footer">

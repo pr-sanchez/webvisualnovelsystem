@@ -1,58 +1,164 @@
+
+    <% if current_page?(root_path) %>
+<%= image_tag "header.jpeg", :class => "img-responsive" %>
+    <% elsif current_page?(about_path) %>
+<%= image_tag "header1.jpeg", :class => "img-responsive" %>
+    <% elsif current_page?(news_path) %>
+<%= image_tag "header.jpeg", :class => "img-responsive" %>
+    <% elsif current_page?(discussions_path) %>
+<%= image_tag "header1.jpeg", :class => "img-responsive" %>
+    <% elsif current_page?(novel_path) %>
+<%= image_tag "header1.jpeg", :class => "img-responsive" %>
+    <% else %>
+<%= image_tag "header.jpeg", :class => "img-responsive" %>
+    <% end %>
+
+
+    <% flash.each do |name, msg| %>
+        <section class="flash-message hero is-primary">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Notificación:
+                    </h1>
+                    <h2 class="subtitle is-2">
+                        <%= content_tag(:div, msg, class: "alert")  %>
+                    </h2>
+                </div>
+            </div>
+        </section>
+    <% end %>      
+    
+
 <div id="header">
+
     <% if current_page?(root_path) %>
         <p>Inicio</p>
     <% elsif current_page?(about_path) %>
         <p>Sobre nosotros</p>
     <% elsif current_page?(news_path) %>
         <p>Todos los Posts</p>
+    <% elsif current_page?(discussions_path) %>
+        <p>Todas las Discusiones</p>
     <% elsif current_page?(novel_path) %>
         <p>Novelas</p>
     <% else %>
-        <%= link_to "Volver al inicio", root_path %>
-    <% end %>
-
-       <% if user_signed_in? %>
-        | <a href="#">Conectado como: <%= current_user.email %></a>
-        | <a href="#">Monedas: <%= current_user.coin %></a>
-        | <%= link_to "Editar cuenta", edit_user_registration_path %>
-       <% end %>
-
-    <% if user_signed_in? %>
-        <div class="buttons">
-            <button class="button">
-                <%= link_to "Nuevo Post", new_post_path %>
-            </button>
-            <button class="button">
-                <%= link_to "Salir", destroy_user_session_path, method: :delete %>
-            </button>
-        </div>
-    <% end %>
-
-    <% if !user_signed_in? %>
-        <div class="buttons">
-            <button class="button">
-                <%= link_to "Registrarte", new_user_registration_path %>
-            </button>
-            <button class="button">
-                <%= link_to "Entrar", new_user_session_path %>
-            </button>
-        </div>
+        <%= link_to "Volver al inicio", root_path, class: "button is-primary" %>
     <% end %>
 
 </div>
-
-<!--<% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert")  %>
-<% end %>-->
-
-<% if flash[:notice] %>
-      <div class="notification is-success global-notification">
-        <p class="notice"><%= notice %></p>
+ 
+ <br>
+  <div class="columns">
+      <div class="column has-text-centered is-3">
+              <div class="logo">
+            <%= link_to root_path do %>
+                <%= image_tag "logo.png", class: 'logo', style: 'height:100%;width:80%;' %>
+            <% end %>
+        </div>
       </div>
-    <% end %>
-    <% if flash[:alert] %>
-    <div class="notification is-danger global-notification">
-      <p class="alert"><%= alert %></p>
+      <div class="column">
+            <%= image_tag "image_slider.jpg", class: 'img-responsive ' %>
+            <a href="https://www.facebook.com/amesthy/?ref=br_rs" target="_blank">
+                <div class="box has-text-centered facebook-btn">
+                    Facebook
+                </div>
+            </a>
+      </div>
+
+    <div class="column">
+    
+        <% if !user_signed_in? %>
+                <div class="box">
+
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <br>
+            </div>
+
+            <div class="field">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+            <br>
+            </div>
+
+            <br>
+            <div class="actions">
+                <%= f.submit "Iniciar sesión" %>
+                <%= link_to "Registrarte", new_user_registration_path, class: 'button2' %>
+
+            </div>
+            <% end %>
+            </div>
+            <br>
+        <% end %>
+        <% if user_signed_in? %>
+        <div class="box">
+            <h1 class="has-text-centered">Bienvenida</h1>
+            Conectado como: <%= current_user.username %><br>
+            Amei: <%= current_user.coin %><br>
+            <% if current_user.has_role?(:admin || :moderator) %>
+                Rol: <strong><%= current_user.roles_name.join("','").capitalize %></strong><br>            
+            <% end %>
+            Chico favorito: <%= %><br>
+            <div class="buttons is-centered">
+                <%= link_to_focus_button "Editar cuenta", edit_user_registration_path, class:'' %>
+                <%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'button is-primary' %>
+            </div>
+        </div>
+        <% end %>
     </div>
-    <% end %>
-   
+  </div>
+
+
+
+<div id="menu_root">
+
+<nav class="navbar is-primary">
+  <div class="navbar-brand">
+    <a class="navbar-item is-hidden-desktop">
+        Menu
+    </a>
+    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-start">
+    
+    <a><%= link_to "Inicio", root_path, :class => "navbar-item  mr50" %></a>
+    <a><%= link_to_focus_navbar "Blog", news_path, :class => "" %></a>
+    <a><%= link_to_focus_navbar "Novelas Visuales", novel_path, :class => "" %></a>
+    <a><%= link_to_focus_navbar "Galería", root_path, :class => "" %></a>
+    <a><%= link_to_focus_navbar "Tienda", root_path, :class => "" %></a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Social
+        </a>
+        <div class="navbar-dropdown is-boxed">
+            <a href="#focus"><%= link_to_focus_navbar_item "Foro", discussions_path, class: ''%></a>
+            <hr class="navbar-divider">
+            <a><%= link_to_focus_navbar_item "About", about_path, class: '' %></a>
+            <hr class="navbar-divider">
+            <a><%= link_to "Facebook", root_path, class: 'navbar-item' %></a>
+            <hr class="navbar-divider">
+          <a><%= link_to "Instagram", root_path, class: 'navbar-item' %></a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</nav>
+
+</div>
+
+

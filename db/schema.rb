@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180625192511) do
+ActiveRecord::Schema.define(version: 20180704144023) do
+
+  create_table "channels", force: :cascade do |t|
+    t.string   "channel"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "discussion_id"
+    t.integer  "user_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment"
@@ -29,6 +37,8 @@ ActiveRecord::Schema.define(version: 20180625192511) do
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "channel_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -38,6 +48,25 @@ ActiveRecord::Schema.define(version: 20180625192511) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
   end
+
+  create_table "replies", force: :cascade do |t|
+    t.text     "reply"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "discussion_id"
+    t.integer  "user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+  add_index "roles", ["name"], name: "index_roles_on_name"
 
   create_table "users", force: :cascade do |t|
     t.integer  "coin",                   default: 0,  null: false
@@ -59,5 +88,12 @@ ActiveRecord::Schema.define(version: 20180625192511) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
+
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
 
 end

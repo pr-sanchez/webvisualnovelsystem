@@ -1,4 +1,6 @@
 <div class="comment clearfix">
+<div class="navbar-divider"></div> 
+
     <div class="comment_content">
         <p class="comment_name"><strong><%= comment.user.username %></strong></p>
         <p class="comment_body"><%= comment.comment %></p>
@@ -6,15 +8,19 @@
     </div>
 
     <% if (user_signed_in? && (current_user.id == comment.user_id)) %>
-        <p><%= link_to 'Borrar', [comment.post, comment],
+        <%= link_to 'Borrar', [comment.post, comment],
                         method: :delete,
-                        class: "button",
+                        class: "button is-primary is-pulled-right",
                         data: { confirm: 'Estas seguro de querer borrar este comentario' }
                         %>
-        </p>
-        <p><%= link_to 'Editar', edit_post_comment_path(comment.post, comment),
-                        class: "button"
+
+        <%= link_to 'Editar', edit_post_comment_path(comment.post, comment),
+                        class: "button is-primary is-pulled-right mr10"
                         %>
-        </p>
     <% end %>
+
+    <br><br>
+  
+
+    
 </div>

@@ -1,14 +1,56 @@
-<p id="notice"><%= notice %></p>
+<div class="columns post_wrapper">
+  <div class="column is-8">
+    <div class="box">
 
-<p>
-  <strong>Title:</strong>
-  <%= @discussion.title %>
-</p>
+    <h1 id="focus" class="title is-2 has-text-grey-dark discussion-title"><%= @discussion.title %></h1>
+    <h3 class="subtitle is-5 has-text-grey-light">por 
+      <% if @discussion.user.has_role?(:admin) %>
+        <%= @discussion.user.username %> 
+        <strong class="subtitle is-5 has-text-warning shadow ml10 mr10">(Administrador)</strong>
+      <% else %>
+        <%= @discussion.user.username %>
+      <% end %> 
+      en <%= link_to @discussion.channel.channel, @discussion.channel %>
+    </h3>
+    <div class="level">
+      <div class="level-left"></div>
+      <div class="level-right">
+        <% if discussion_author(@discussion) %>
+        <div class="buttons">
+          <a class="level-item">
+            <%= link_to edit_discussion_path(@discussion), :title => "Editar" do %>
+              <span class="icon is-large"><i class="fa fa-pencil fas fa-2x"></i></span>
+            <% end %>
+          </a>
+          <a class="level-item">
+            <%= link_to discussion_path(@discussion), method: :delete, data: { confirm: "¿Estas seguro de querer borrar esta Discusión?" }, :title => "Borrar" do %>
+              <span class="icon is-large"><i class="fa fa-trash-o fas fa-2x	"></i></span>
+            <% end %>
+          </a>
+        </div>
+       <% end %>
+      </div>
+    </div>
+    <div class="content"><%= markdown(@discussion.content) %></div>
+  </div>
+    <h2 class="subtitle is-4 has-text-grey"><%= @discussion.replies.count %> Respuestas</h2>
 
-<p>
-  <strong>Content:</strong>
-  <%= @discussion.content %>
-</p>
+    <div id="discussion-replies">
+      <%= render @discussion.replies %>
+    </div>
 
-<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
-<%= link_to 'Back', discussions_path %>
+    <hr />
+
+    <h3 class="subtitle is-3 has-text-grey">Deja una respuesta</h3>
+    <% if user_signed_in? %>
+      <%= render 'replies/form' %>
+    <% else %>
+      <p>Para responder necesitas <%= link_to 'Iniciar sesión', new_user_session_path %>. No tienes cuenta?
+      <%= link_to 'Registrate', new_user_registration_path %> para una.</p>
+    <% end %>
+
+  </div>
+
+  <%= render 'sidebar' %>
+
+</div>

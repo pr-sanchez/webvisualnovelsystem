@@ -1,20 +1,25 @@
 class DiscussionsController < ApplicationController
   before_action :set_discussion, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :find_channels, only: [:index, :show, :new, :edit]
+  before_action :discussion_owner, only: [:edit, :update, :destroy]
 
   # GET /discussions
   # GET /discussions.json
   def index
-    @discussions = Discussion.all
+    @discussions = Discussion.all.order('created_at desc')
   end
 
   # GET /discussions/1
   # GET /discussions/1.json
   def show
+    @discussions = Discussion.all.order('created_at desc')
+
   end
 
   # GET /discussions/new
   def new
-    @discussion = Discussion.new
+    @discussion = current_user.discussions.build
   end
 
   # GET /discussions/1/edit
@@ -24,11 +29,11 @@ class DiscussionsController < ApplicationController
   # POST /discussions
   # POST /discussions.json
   def create
-    @discussion = Discussion.new(discussion_params)
+    @discussion = current_user.discussions.build(discussion_params)
 
     respond_to do |format|
       if @discussion.save
-        format.html { redirect_to @discussion, notice: 'Discussion was successfully created.' }
+        format.html { redirect_to @discussion, notice: 'La Discusión ha sido creada exitosamente!' }
         format.json { render :show, status: :created, location: @discussion }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class DiscussionsController < ApplicationController
   def update
     respond_to do |format|
       if @discussion.update(discussion_params)
-        format.html { redirect_to @discussion, notice: 'Discussion was successfully updated.' }
+        format.html { redirect_to @discussion, notice: 'La Discusión ha sido editada exitosamente!' }
         format.json { render :show, status: :ok, location: @discussion }
       else
         format.html { render :edit }
@@ -56,8 +61,15 @@ class DiscussionsController < ApplicationController
   def destroy
     @discussion.destroy
     respond_to do |format|
-      format.html { redirect_to discussions_url, notice: 'Discussion was successfully destroyed.' }
+      format.html { redirect_to discussions_url, notice: 'La Discusión ha sido borrada exitosamente!' }
       format.json { head :no_content }
+    end
+  end
+
+  def discussion_owner
+    unless @discussion.user_id == current_user.id || current_user.has_role?(:admin)
+     flash[:notice] = 'Acceso denegado porque no eres el dueño de esta discusión'
+     redirect_to discussions_path
     end
   end
 
@@ -67,8 +79,12 @@ class DiscussionsController < ApplicationController
       @discussion = Discussion.find(params[:id])
     end
 
+    def find_channels
+      @channels = Channel.all.order('created_at desc')
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def discussion_params
-      params.require(:discussion).permit(:title, :content)
+      params.require(:discussion).permit(:title, :content, :channel_id)
     end
 end
