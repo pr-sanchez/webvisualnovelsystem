@@ -11,6 +11,13 @@ class Discussion < ActiveRecord::Base
     validate :channel_existing
     resourcify
 
+    extend FriendlyId 
+    friendly_id :title, use: [:slugged, :finders]
+
+    def should_generate_new_friendly_id?
+        title_changed?
+    end
+
     private
     def channel_existing
         errors.add(:channel_id, :missing) if channel.blank?

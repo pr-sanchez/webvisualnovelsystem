@@ -1,10 +1,7 @@
 <div class="box">
     <h1>Editar Discusión</h1>
-    <% if has_role?(:admin) %>   
         <%= render 'form' %>
         <%= link_to 'Show', @discussion %> |
         <%= link_to 'Back', discussions_path %>
-    <% else %> 
       <p class="has-text-center">Lo sentimos! No tienes acceso a esta página.</p>
-    <% end %>
 </div>

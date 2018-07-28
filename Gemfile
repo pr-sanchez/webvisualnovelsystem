@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -23,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #devise for authentication
 gem 'devise', '~> 4.4', '>= 4.4.3'
+
+# The administration framework for Ruby on Rails.
+gem 'activeadmin', '~> 1.3'
 
 #will_paginate for pagination
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'

@@ -15,7 +15,6 @@ class PostsController < ApplicationController
         @post = current_user.posts.build(post_params)
         if @post.save
         redirect_to @post #redirect_to hace un llamado http completo
-        current_user.coin = +10
         else 
             render 'new' #la diferencia entre render y redirect es que con render si por error no guarda el post, no pierdo la información que he escrito.
         end 
@@ -29,6 +28,8 @@ class PostsController < ApplicationController
 
     def update
         if @post.update(params[:post].permit(:title, :body))
+            current_user.coin -= 100
+
             redirect_to @post
         else
             render 'edit'
