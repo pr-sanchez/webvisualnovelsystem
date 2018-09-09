@@ -16,7 +16,7 @@
         <% @discussions.each do |discussion| %>
             <div class="columns bb-not-last pv10">
                 <div class="column is-1">
-                    <%= gravatar_image_tag(discussion.user.email, class:'border-radius-50', size: 48, alt: discussion.user.username) %>
+                    <!--< % = gravatar_image_tag(discussion.user.email, class:'border-radius-50', size: 48, alt: discussion.user.username) %>-->
                 </div>
                 <div class="column is-8">
                     <%= link_to discussion do %>

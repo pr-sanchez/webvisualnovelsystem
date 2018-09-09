@@ -5,8 +5,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.7.1'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -64,7 +62,6 @@ gem 'redcarpet'
 #Fast and easy syntax highlighting for selected languages
 gem 'coderay'
 
-gem 'pg'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -75,6 +72,15 @@ gem 'pg'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+group :development do 
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

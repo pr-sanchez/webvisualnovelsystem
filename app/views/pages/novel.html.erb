@@ -1,19 +1,21 @@
-<%= favicon_link_tag 'game/TemplateData/favicon.ico', type: 'image/ico' %>
-<% javascript_include_tag "game/TemplateData/UnityProgress.js" %>
-<% javascript_include_tag "game/Build/UnityLoader.js" %>
-<% stylesheet_link_tag "game/TemplateData/style" %>
+<title>Unity WebGL Player | Novela Visual</title>
+<link rel="shortcut icon" href="/assets/TemplateData/favicon.ico">
+<link rel="stylesheet" href="/assets/TemplateData/style.css">
+<script src="/assets/TemplateData/UnityProgress.js"></script>  
+<script src="/assets/Build/UnityLoader.js"></script>
 
-
-
-    <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "game/Build/Construcciones Novela Visual.json", {onProgress: UnityProgress});
-    </script>
-
+<script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "/assets/Build/Construccione.json", {onProgress: UnityProgress});
+</script>
+  </head>
+  <body>
     <div class="webgl-content">
-      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+      <div id="gameContainer" style="width: 1280px; height: 720px"></div>
       <div class="footer">
         <div class="webgl-logo"></div>
         <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
-        <div class="title">Plantilla Novela Visual</div>
+        <div class="title">Novela Visual</div>
       </div>
     </div>
+  </body>
+</html>
