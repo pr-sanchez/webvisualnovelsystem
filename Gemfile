@@ -33,8 +33,6 @@ gem 'will_paginate'
 #A modern CSS framework based on Flexbox
 gem 'bulma-rails'
 
-gem "pg", "< 1.0"
-
 #will_paginate-bulma integrate css of bulma to will_paginate
 gem 'will_paginate-bulma'
 
@@ -49,6 +47,8 @@ gem 'gravatar_image_tag'
 
 #This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
 gem 'jquery-rails'
+
+gem 'sqlite3'
 
 #Very simple Roles library without any authorization enforcement supporting scope on resource objects (instance or class). Supports ActiveRecord and Mongoid ORMs.
 gem 'rolify'
@@ -76,9 +76,7 @@ gem 'coderay'
 
 
 
-group :production do
-  gem 'pg'
-end
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -92,8 +90,6 @@ group :development, :test do
 end
 
 group :development do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
