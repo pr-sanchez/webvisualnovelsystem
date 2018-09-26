@@ -33,7 +33,7 @@ gem 'will_paginate'
 #A modern CSS framework based on Flexbox
 gem 'bulma-rails'
 
-gem 'pg'
+gem "pg", "< 1.0"
 
 #will_paginate-bulma integrate css of bulma to will_paginate
 gem 'will_paginate-bulma'
