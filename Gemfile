@@ -48,7 +48,7 @@ gem 'gravatar_image_tag'
 #This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
 gem 'jquery-rails'
 
-gem 'sqlite3'
+gem 'pg'
 
 #Very simple Roles library without any authorization enforcement supporting scope on resource objects (instance or class). Supports ActiveRecord and Mongoid ORMs.
 gem 'rolify'
@@ -75,6 +75,7 @@ gem 'coderay'
 # gem 'capistrano-rails', group: :development
 
 
+gem 'rails_12factor', group: :production
 
 
 
@@ -90,7 +91,6 @@ group :development, :test do
 end
 
 group :development do
-
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -98,3 +98,4 @@ group :development do
   gem 'spring'
 end
 
+ruby "2.3.3"
