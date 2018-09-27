@@ -48,7 +48,7 @@ gem 'gravatar_image_tag'
 #This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
 gem 'jquery-rails'
 
-gem 'pg'
+gem 'pg', '0.21'
 
 #Very simple Roles library without any authorization enforcement supporting scope on resource objects (instance or class). Supports ActiveRecord and Mongoid ORMs.
 gem 'rolify'
@@ -96,4 +96,4 @@ group :development do
   gem 'spring'
 end
 
-ruby "2.4.4"
+ruby "2.5.1"
