@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @novel.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @novel.description %>
+</p>
+
+
+<title>Unity WebGL Player | Novela Visual</title>
+<%= stylesheet_link_tag 'application', '/assets/TemplateData/style.css' %>
+
+<script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "/assets/Build/Construccione.json", {onProgress: UnityProgress});
+</script>
+
+
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 1280px; height: 720px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">Novela Visual</div>
+      </div>
+    </div>
+
+
+
+<%= link_to 'Edit', edit_novel_path(@novel) %> |
+<%= link_to 'Back', novels_path %>
+<script src="/assets/TemplateData/UnityProgress.js"></script>  
+<script src="/assets/Build/UnityLoader.js"></script>
