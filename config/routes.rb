@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :novels
   resources :characters
   resources :channels
 
@@ -15,8 +16,10 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/character', to: 'characters#index'
   get "news" => 'posts#index'
-  get '/novel', to: 'pages#novel'
+  # get '/novel', to: 'pages#novel'
   get '/forum', to: 'discussions#index'
+  get '/novel', to: 'novels#index'
+
 
 
   devise_for :users, controllers: { registrations: 'registrations' }

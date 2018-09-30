@@ -7,8 +7,8 @@
 <%= image_tag "header.jpeg", :class => "img-responsive" %>
     <% elsif current_page?(discussions_path) %>
 <%= image_tag "header1.jpeg", :class => "img-responsive" %>
-    <% elsif current_page?(novel_path) %>
-<%= image_tag "header1.jpeg", :class => "img-responsive" %>
+<!--    < % elsif current_page?(novel_path) %>
+< % = image_tag "header1.jpeg", :class => "img-responsive" %> -->
     <% else %>
 <%= image_tag "header.jpeg", :class => "img-responsive" %>
     <% end %>
@@ -156,9 +156,9 @@
                     
                     <a><%= link_to "Inicio", root_path, :class => "navbar-item  mr50" %></a>
                     <a><%= link_to_focus_navbar "Blog", news_path, :class => "" %></a>
-                    <a><%= link_to "Novelas Visuales", novel_path, :class => "navbar-item  mr50" %></a>
+                    <a><%= link_to_focus_navbar "Novelas", novels_path, :class => "" %></a>
+                   <!-- <a>< % = link_to "Novelas Visuales", novel_path, :class => "navbar-item  mr50" %></a>-->
                     <a><%= link_to_focus_navbar "Galería", root_path, :class => "" %></a>
-                    <a><%= link_to_focus_navbar "Tienda", root_path, :class => "" %></a>
                     <a><%= link_to_focus_navbar "Tienda", root_path, :class => "" %></a>
                     <a href="#focus"><%= link_to_focus_navbar_item "Foro", discussions_path, class: ''%></a>
                 </div>

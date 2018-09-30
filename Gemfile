@@ -65,6 +65,11 @@ gem 'redcarpet'
 #Fast and easy syntax highlighting for selected languages
 gem 'coderay'
 
+# Upload files in your Ruby applications, map them to a range of ORMs, store them on different backends.
+# gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+
+# The PayPal REST SDK provides Ruby APIs to create, process and manage payment.
+# gem 'paypal-sdk-rest', '~> 1.7', '>= 1.7.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
