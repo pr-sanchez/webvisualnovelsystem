@@ -12,10 +12,10 @@
 
 
 <title>Unity WebGL Player | Novela Visual</title>
-<%= stylesheet_link_tag 'application', '/assets/TemplateData/style.css' %>
+<%= stylesheet_link_tag 'application', "/uploads/novel/templateData/#{@novel.id}/style.css" %>
 
 <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "/assets/Build/Construccione.json", {onProgress: UnityProgress});
+      var gameInstance = UnityLoader.instantiate("gameContainer", "/uploads/novel/build/#{@novel.id}/Construccione.json", {onProgress: UnityProgress});
 </script>
 
 
@@ -29,8 +29,7 @@
     </div>
 
 
-
 <%= link_to 'Edit', edit_novel_path(@novel) %> |
 <%= link_to 'Back', novels_path %>
-<script src="/assets/TemplateData/UnityProgress.js"></script>  
-<script src="/assets/Build/UnityLoader.js"></script>
+<%= javascript_include_tag "/uploads/novel/templateData/#{@novel.id}/UnityProgress.js" %>
+<%= javascript_include_tag "/uploads/novel/build/#{@novel.id}/UnityLoader.js" %>

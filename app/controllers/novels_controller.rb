@@ -70,6 +70,6 @@ class NovelsController < ApplicationController
     # end
 
     def novel_params
-      params.require(:novel).permit(:title, :description)
+      params.require(:novel).permit(:title, :description, build: [], templatedata: [])
     end
 end

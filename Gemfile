@@ -48,8 +48,8 @@ gem 'gravatar_image_tag'
 #This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
 gem 'jquery-rails'
 
-gem 'pg', '~> 0.20.0'
-# gem 'sqlite3'
+# gem 'pg', '~> 0.20.0'
+gem 'sqlite3'
 
 #Very simple Roles library without any authorization enforcement supporting scope on resource objects (instance or class). Supports ActiveRecord and Mongoid ORMs.
 gem 'rolify'
@@ -66,7 +66,7 @@ gem 'redcarpet'
 gem 'coderay'
 
 # Upload files in your Ruby applications, map them to a range of ORMs, store them on different backends.
-# gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 
 # The PayPal REST SDK provides Ruby APIs to create, process and manage payment.
 # gem 'paypal-sdk-rest', '~> 1.7', '>= 1.7.2'
